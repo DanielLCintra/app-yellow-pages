@@ -1,0 +1,22 @@
+* {
+  font-family: "verdana";
+}
+
+.container {
+  border: 1px solid #e1e1e1;
+  width: 100%;
+  float: left;
+}
+
+.sub-container {
+  float: left;
+  margin: 30px 10px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  float: left;
+  margin: 10px 10px;
+}
