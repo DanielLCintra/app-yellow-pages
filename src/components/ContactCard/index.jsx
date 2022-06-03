@@ -9,6 +9,7 @@ export const ContactCard = ({
   picture,
 }) => {
   const Image = Images[picture.split(".")[0]] || Images.defaultImage;
+
   return (
     <div className="container">
       <img className="user-avatar" src={Image} />

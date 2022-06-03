@@ -9,8 +9,12 @@ import image8 from "./image8.png";
 import image9 from "./image9.png";
 import image10 from "./image10.png";
 import defaultImage from "./default.png";
+import logo from "./logo.png";
+import noresults from "./noresults.png";
 
 export default {
+  noresults,
+  logo,
   defaultImage,
   image1,
   image2,

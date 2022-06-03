@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+.yellow-pages-container {
+  padding: 1rem 5rem;
+  display: flex;
+  flex-flow: column;
+}
+
+.yellow-pages-header {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.yellow-pages-header .logo img {
+  width: 400px;
+  height: 150px;
+  margin: 1em 0;
+}
+
+.yellow-pages-header .search-container {
+  display: flex;
+  flex-flow: row;
+  margin: 1em 0;
+  width: 100%;
+}
+
+.yellow-pages-header .search-input {
+  width: 80%;
+  border: 5px 0 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  padding: 0 1em;
+  font-family: Roboto;
+  font-size: 18px;
+}
+
+.yellow-pages-header .search-button {
+  width: 20%;
+  border: 0;
+  background-color: #f5c817;
+  height: 2.7rem;
+  border-radius: 0 5px 5px 0;
+}
+
+.yellow-pages-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  flex-flow: column;
+}
+
+.yellow-pages-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  background-color: #f0f0f075;
+}
