@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "vite --port $PORT",
+    "start": "vite --port=$PORT",
     "dev": "vite --port=3001",
     "build": "vite build",
     "preview": "vite preview"
