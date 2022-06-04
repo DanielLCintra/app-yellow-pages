@@ -8,7 +8,8 @@ export const ContactCard = ({
   address,
   picture,
 }) => {
-  const Image = Images[picture.split(".")[0]] || Images.defaultImage;
+  const selectedPicture = !!picture ? picture.split(".")[0] : "";
+  const Image = Images[selectedPicture] || Images.defaultImage;
 
   return (
     <div className="container">

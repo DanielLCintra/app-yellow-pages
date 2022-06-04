@@ -3,8 +3,8 @@ import "./styles.css";
 
 export const NoItems = () => {
   return (
-    <div className="noresults-container">
-      <img src={images.noresults} />
+    <div className="noResults-container">
+      <img src={images.noResults} />
     </div>
   );
 };
