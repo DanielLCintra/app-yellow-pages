@@ -10,7 +10,7 @@ import image9 from "./image9.png";
 import image10 from "./image10.png";
 import defaultImage from "./default.png";
 import logo from "./logo.png";
-import noResults from "./noResults.png";
+import noResults from "./noresults.png";
 
 export default {
   noResults,
