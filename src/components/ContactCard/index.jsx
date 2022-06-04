@@ -1,5 +1,6 @@
 import "./styles.css";
 import Images from "../../assets/images";
+import { getAgeByDateOfBirth } from "../../utils/functions";
 
 export const ContactCard = ({
   name,
@@ -16,7 +17,9 @@ export const ContactCard = ({
       <img className="user-avatar" src={Image} />
 
       <div className="sub-container">
-        <div className="label">{`${name}, ${birthday}, ${phone_number}`}</div>
+        <div className="label">{`${name}, ${getAgeByDateOfBirth(
+          birthday
+        )}, ${phone_number}`}</div>
 
         <p className="description">{address}</p>
       </div>

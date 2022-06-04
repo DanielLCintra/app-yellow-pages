@@ -12,7 +12,7 @@ export const YellowPages = () => {
   const dispatch = useDispatch();
 
   const [filters, setFilters] = useState({
-    name: "",
+    search: "",
   });
 
   const { loading } = useSelector((state) => state.genericReducer);
@@ -53,8 +53,8 @@ export const YellowPages = () => {
             className="search-input"
             type="text"
             placeholder="Type something to search..."
-            value={filters.name}
-            onChange={(e) => setFilters({ ...filters, name: e.target.value })}
+            value={filters.search}
+            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
             onKeyUp={(e) => {
               if (e.key === "Enter") {
                 handleFilter();
