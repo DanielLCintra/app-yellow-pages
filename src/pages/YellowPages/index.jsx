@@ -34,7 +34,7 @@ export const YellowPages = () => {
       );
     }
     const result = filter(listContacts, filters);
-    console.log("result", result);
+
     dispatch(setFilteredListOfContacts({ filteredListOfContacts: result }));
   };
 
