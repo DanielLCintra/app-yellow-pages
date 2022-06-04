@@ -8,7 +8,7 @@ Hello, welcome to the Yellow pages app project.
 
 2 - To search for a contact with a term.
 
-Obs: This project uses the yellow pages api --> [View](https://github.com/DanielLCintra/api-yellow-pages). Also builted by me ;)
+Obs: This project uses the [YELLOW PAGES API](https://github.com/DanielLCintra/api-yellow-pages). Also builted by me ;)
 
 ## Preview
 
