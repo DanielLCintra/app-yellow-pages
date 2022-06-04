@@ -8,13 +8,15 @@ Hello, welcome to the Yellow pages app project.
 
 2 - To search for a contact with a term.
 
+Obs: This project uses the yellow pages api --> [View](https://github.com/DanielLCintra/api-yellow-pages). Also builted by me ;)
+
 ## Preview
 
 ![My image](https://daniellcintra.github.io/yellow_pages_preview.png)
 
 ## Live Demonstration
 
-[Visualizar](https://app-yellow-pages.herokuapp.com/)
+[View](https://app-yellow-pages.herokuapp.com/)
 
 ## Project Installation
 
