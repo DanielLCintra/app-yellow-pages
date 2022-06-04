@@ -11,8 +11,10 @@ import image10 from "./image10.png";
 import defaultImage from "./default.png";
 import logo from "./logo.png";
 import noResults from "./noresults.png";
+import loading from "./loading.gif";
 
 export default {
+  loading,
   noResults,
   logo,
   defaultImage,

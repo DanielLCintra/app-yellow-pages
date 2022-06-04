@@ -1,11 +1,11 @@
 export const filter = (data, filters) => {
   const fPredicateMap = {
-    search: (term) => (v) =>
+    search2: (term) => (v) =>
       !term ||
       !!(
         (v?.name &&
           (v?.name.toLowerCase().indexOf(term.toLowerCase()) !== -1 ||
-            getAgeByDateOfBirth(v?.phone_number)
+            getAgeByDateOfBirth(v?.birthday)
               .toString()
               .toLowerCase()
               .indexOf(term.toLowerCase()) !== -1)) ||
@@ -17,6 +17,33 @@ export const filter = (data, filters) => {
           .toLowerCase()
           .indexOf(term.toLowerCase()) !== -1
       ),
+    search: (term) => (v) =>
+      !term ||
+      `${v?.name},${v?.address},${getAgeByDateOfBirth(
+        v?.birthday
+      ).toString()},${v?.phone_number}`
+        .split(",")
+        .map((item) => {
+          return term.split(" ").map((term) => {
+            return (
+              item
+                .replace("(", "")
+                .replace(")", "")
+                .replace(" ", "")
+                .toLowerCase()
+                .indexOf(
+                  term
+                    .replace("(", "")
+                    .replace(")", "")
+                    .replace(" ", "")
+                    .toLowerCase()
+                ) !== -1
+            );
+          });
+        })
+        .map((item) => item.map((j) => j).join(","))
+        .join(",")
+        .includes("true"),
   };
 
   const getFilterPredicate = (fInput, fPredicateMap) =>

@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ContactCard } from "../../components/ContactCard";
+
 import { getContacts } from "../../redux/middleware";
+import { setFilteredListOfContacts } from "../../redux/slices/contacts.slice";
+
+import { filter } from "../../utils/functions";
+
+import { ContactCard } from "../../components/ContactCard";
+import { NoItems } from "../../components/NoItems";
+import { SearchBar } from "../../components/SearchBar";
+import { Count } from "../../components/Count";
+import { Loading } from "../../components/Loading";
+
 import "./styles.css";
 import Images from "../../assets/images/index";
-import { filter } from "../../utils/functions";
-import { NoItems } from "../../components/NoItems";
-import { setFilteredListOfContacts } from "../../redux/slices/contacts.slice";
+import { Logo } from "../../components/Logo";
 
 export const YellowPages = () => {
   const dispatch = useDispatch();
@@ -14,22 +22,21 @@ export const YellowPages = () => {
   const [filters, setFilters] = useState({
     search: "",
   });
-
   const { loading } = useSelector((state) => state.genericReducer);
-
   const { listContacts, filteredListOfContacts } = useSelector(
     (state) => state.contactReducer
   );
 
-  async function handleFilter() {
-    if (!!filters.name) {
+  const handleFilter = () => {
+    if (!!filters.search) {
       dispatch(
         setFilteredListOfContacts({ filteredListOfContacts: listContacts })
       );
     }
     const result = filter(listContacts, filters);
+    console.log("result", result);
     dispatch(setFilteredListOfContacts({ filteredListOfContacts: result }));
-  }
+  };
 
   useEffect(() => {
     dispatch(getContacts());
@@ -44,39 +51,33 @@ export const YellowPages = () => {
   return (
     <div className="yellow-pages-container">
       <div className="yellow-pages-header">
-        <div className="logo">
-          <img src={Images.logo} />
-        </div>
+        <Logo />
 
-        <div className="search-container">
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Type something to search..."
-            value={filters.search}
-            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-            onKeyUp={(e) => {
-              if (e.key === "Enter") {
-                handleFilter();
-              }
-            }}
-          />
-          <button className="search-button" onClick={() => handleFilter()}>
-            Search
-          </button>
-        </div>
+        <SearchBar
+          filters={filters}
+          handleFilter={handleFilter}
+          setFilters={setFilters}
+        />
       </div>
+
       <div className="yellow-pages-body">
         {!!filteredListOfContacts && filteredListOfContacts.length > 0 ? (
-          filteredListOfContacts.map((contact) => (
-            <ContactCard {...contact} key={contact._id} />
-          ))
+          <>
+            <Count
+              count={filteredListOfContacts.length}
+              total={listContacts.length}
+            />
+            {filteredListOfContacts.map((contact) => (
+              <ContactCard {...contact} key={contact._id} />
+            ))}
+          </>
         ) : !!loading ? (
-          <div>Loading...</div>
+          <Loading />
         ) : (
           <NoItems />
         )}
       </div>
+
       <div className="yellow-pages-footer">Made by: Daniel Cintra</div>
     </div>
   );
